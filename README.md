@@ -4,7 +4,7 @@ Merge tiles, reach the elusive 2048 tile, and test your strategic skills in the 
 
 ## Play the Game
 
-[Play Now](https://your-username.github.io/2048-game/) 🕹️
+[Play Now](https://aryan0-1maurya.github.io/2048-game/) 🕹️
 
 ## About the Game
 
