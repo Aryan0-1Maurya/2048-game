@@ -1,0 +1,187 @@
+
+/* 
+
+     ============================================================
+      
+          _____________   ^^^^^^^^^^    ____________________
+
+[   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  ]
+
+          _____________   ^^^^^^^^^^    ____________________
+
+     ============================================================
+
+*/
+
+
+body {
+    transition:all 1s;
+    background: #faf8ef;
+    background-position:center 0;
+    font-family:tahoma;
+    color:white;
+}
+#top{
+    display:flex;
+    margin:auto;
+    width:290px;
+    height:85px;
+    justify-content:space-around;
+}
+#title{
+  font-weight:600;
+  width:60%;
+  height:80px;
+  background:url("img/logoc.png") no-repeat;
+}
+.score{
+    background:#bbada0;
+    width:40%;
+    color:#eee4da;
+    border-radius:5px;
+    padding:5px;
+    line-height:1.5em;
+    font-size:12px;
+    font-weight:600;
+    text-align:right;
+}
+.score span{
+  color:#fff;
+    display:block;
+    font-size:20px;
+}
+#dev{
+    position:fixed;
+}
+#board{
+   background:#bbada0;
+   width:280px;
+   height:280px;
+   padding:5px;
+   position:relative;
+   border-radius:5px;
+   margin:5px auto;
+}
+.place{
+   background:rgba(238, 228, 218, 0.35);
+   background-size:60px 60px;
+   width:60px;
+   height:60px;
+   float:left;
+   margin:5px;
+   border-radius:3px;
+}
+.tile{
+   width:60px;
+   height:60px;
+   color:rgba(255,255,255,0.8);
+   position:absolute;
+   font-size:20pt;
+   text-align:center;
+   font-weight:600;
+   line-height:55px;
+   animation: show 0.2s ease-out;
+   border-radius:3px;
+   display:flex;
+   justify-content:center;
+   transition:all 0.2s;
+   background-size:50px 50px;
+   animation:merge 0.4s;
+}
+#buttons{
+    display:flex;
+    justify-content:space-between;
+    width: 290px;
+    margin:0 auto;
+    flex-wrap:wrap;
+}
+#us{
+    margin:5px 100px;
+    width:70px;
+}
+.button{
+    background:#bbada0;
+    padding:10px;
+    text-align:center;
+    user-select: none;
+    width:70px;
+    cursor: pointer;
+    border-radius:10px;
+}
+.b1{
+   background:#eee4da;
+   color:#776e65;
+   animation:show 0.2s ease-out;
+}
+.b2{
+   background: #eee1c9;
+   color:#776e65;
+}
+.b3{
+   background: #f3b27a;
+   color: #f9f6f2;
+}
+.b4{
+    background: #f69664;
+    color:#f9f6f2;
+}
+.b5{
+  color: #f9f6f2;
+  background: #f77c5f;
+}
+.b6{
+  color: #f9f6f2;
+  background: #f75f3b;
+}
+.b7{
+  color: #f9f6f2;
+  background: #edd073;
+}
+.b8{
+  color: #f9f6f2;
+  background: #edcc62;
+}
+.b9{
+  color: #f9f6f2;
+  background: #edc950;
+   font-size:16pt;
+}
+.b10{
+  color: #f9f6f2;
+  background: #edc53f;
+   font-size:16pt;
+}
+.b11{
+  color: #f9f6f2;
+  background: #edc22e;
+   font-size:16pt;
+}
+.b12{
+  color: #f9f6f2;
+  background: #edc22e;
+   font-size:16pt;
+}
+.b13{
+  color: #f9f6f2;
+  background: #edc22e;
+   font-size:16pt;
+}
+.b14{
+  color: #f9f6f2;
+  background: #edc22e;
+   font-size:16pt;
+}
+
+/* 
+
+     ============================================================
+      
+          _____________   ^^^^^^^^^^    ____________________
+
+[   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  ]
+
+          _____________   ^^^^^^^^^^    ____________________
+
+     ============================================================
+
+*/

@@ -1,0 +1,188 @@
+<!-- 
+
+      ************************************************************
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+{   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  }
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+      ************************************************************
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=7" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+      <meta name="author" content="Aryan Maurya" />
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+      <link rel="apple-touch-icon" href="favicon.png" />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <meta
+        name="description"
+        content="This is online 2048 game build for your imporove thing skill in this domain by aryan maurya enjoy your game"
+      />
+      <meta
+      name="keywords"
+      content="2048 game, sliding puzzle, number puzzle, tile merging, addictive games, strategy game, number challenge, brain teaser, sliding block puzzle, tile game, puzzle-solving, logic game, mathematical game, tile matching, classic puzzle, casual games, online 2048, mobile puzzle game, web-based games, addictive puzzle games, number strategy, grid game"
+    />
+    
+        <title>2048 -Game by AmsR</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="core.css" rel="stylesheet" type="text/css">
+        <link id="sw" href="def.css" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="img/favicon.png">
+        <script src="jquery321min.js"></script>
+        <script src="engine.js"></script>
+    </head>
+    <body>
+    <div id="top">
+        <div id="title">
+        </div>
+        <div class="score">
+            BEST<span id="hs">0</span>
+            SCORE<span id="cs">0</span>
+        </div>
+    </div>
+    <div id="board">
+        <div id="board-go">
+            <p class="go">GAME OVER</p>
+            <form action="action.php" method="post">
+              <span>SAVE YOUR SCORE</span>
+              <input id="nick" type="text" name="nick" placeholder="Nick" required/>
+              <input id="score" type="text" name="score"/>
+              <input class="btn" type="submit" value="SEND" />
+              <span class="button" id="reset">RESTART</span>
+        		</form>
+        </div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+        <div class="place"></div>
+    </div>
+        <div id="buttons">
+            <span class="button" id="us">&#9650;</span>
+            <span class="button" id="ls">&#9664;</span>
+            <span class="button" id="ds">&#9660;</span>
+            <span class="button" id="rs">&#9654;</span>
+        </div>
+   
+
+  </div>
+  
+    </body>
+    <script type="text/javascript">
+   
+    function swipedetect(el, callback){
+
+        var touchsurface = el,
+        swipedir,
+        startX,
+        startY,
+        distX,
+        distY,
+        threshold = 10, //required min distance traveled to be considered swipe
+        restraint = 50, // maximum distance allowed at the same time in perpendicular direction
+        allowedTime = 500, // maximum time allowed to travel that distance
+        elapsedTime,
+        startTime,
+        handleswipe = callback || function(swipedir){}
+
+        touchsurface.addEventListener('touchstart', function(e){
+          if (!(sum>15 && sum<17 && chance==0)){
+            var touchobj = e.changedTouches[0]
+            swipedir = 'none'
+            dist = 0
+            startX = touchobj.pageX
+            startY = touchobj.pageY
+            startTime = new Date().getTime() // record time when finger first makes contact with surface
+            e.preventDefault()
+          }
+        }, false)
+
+        touchsurface.addEventListener('touchmove', function(e){
+          if (!(sum>15 && sum<17 && chance==0)){
+            e.preventDefault() // prevent scrolling when inside DIV
+          }
+        }, false)
+
+        touchsurface.addEventListener('touchend', function(e){
+            var touchobj = e.changedTouches[0]
+            distX = touchobj.pageX - startX // get horizontal dist traveled by finger while in contact with surface
+            distY = touchobj.pageY - startY // get vertical dist traveled by finger while in contact with surface
+            elapsedTime = new Date().getTime() - startTime // get time elapsed
+            if (elapsedTime <= allowedTime){ // first condition for awipe met
+                if (Math.abs(distX) >= threshold && Math.abs(distY) <= restraint){ // 2nd condition for horizontal swipe met
+                    swipedir = (distX < 0)? 'left' : 'right' // if dist traveled is negative, it indicates left swipe
+                }
+                else if (Math.abs(distY) >= threshold && Math.abs(distX) <= restraint){ // 2nd condition for vertical swipe met
+                    swipedir = (distY < 0)? 'up' : 'down' // if dist traveled is negative, it indicates up swipe
+                }
+            }
+            if (!(sum>15 && sum<17 && chance==0)){
+              handleswipe(swipedir)
+              e.preventDefault()
+            }
+
+        }, false)
+    }
+
+    //USAGE:
+
+    var el = document.getElementById('board');
+    swipedetect(el, function(swipedir){
+        // swipedir contains either "none", "left", "right", "top", or "down"
+        switch (swipedir){
+          case 'left':
+          left();
+          break;
+          case 'right':
+          right();
+          break;
+          case 'down':
+          down();
+          break;
+          case 'up':
+          up();
+          break;
+          case 'none':
+          break;
+        }
+    });
+
+    </script>
+</html>
+
+
+<!-- 
+
+      ************************************************************
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+{   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  }
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+      ************************************************************
+ -->
